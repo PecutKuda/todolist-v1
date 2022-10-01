@@ -1,0 +1,25 @@
+<%- include ("header") -%>
+
+    <!-- jika ingin menggunakan conditional statement (javascript) pada ejs, 
+    maka harus memakai "tanda arrow + %" (semua script harus didalam termasuk kurung kerawal) "tanda % + arrow" -->
+    <div class="box" id="heading">
+        <h1> <%= fieldTitle %> </h1>
+    </div>
+    <div class="box">
+        <% for (var i=0; i<newListItems.length; i++) { %>
+            <div class="item">
+                <input type="checkbox">
+                <p> <%= newListItems[i] %> </p>
+            </div>
+        <% } %>
+
+        <form class="item" action="/" method="post">
+
+            <input type="text" name="newItem" placeholder="New Item">
+            <!-- saat tombol submit dipencet, akan mereturn "text" inputan user dan
+            value "name" dari submit button. value "name" berfungsi untuk menentukan redirect apakah ke "/" atau "/work" -->
+            <button type="submit" name="list" value="<%= fieldTitle %>">+</button>
+        </form>
+    </div>
+
+<%- include("footer") -%>
